@@ -4,3 +4,6 @@
 [submodule "zsh/oh-my-zsh-custom/plugins/zsh-autosuggestions"]
 	path = zsh/oh-my-zsh-custom/plugins/zsh-autosuggestions
 	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "tmux/plugins/tmp"]
+	path = tmux/plugins/tmp
+	url = git@github.com:tmux-plugins/tpm.git
