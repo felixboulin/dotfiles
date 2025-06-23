@@ -178,12 +178,13 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         python = { 'black' },
-        javascript = { { 'prettierd', 'prettier' } },
-        typescript = { { 'prettierd', 'prettier' } },
-        json = { { 'prettierd', 'prettier' } },
+        javascript = { 'prettierd', 'prettier' },
+        typescript = { 'prettierd', 'prettier' },
+        json = { 'prettierd', 'prettier' },
         htmldjango = { 'djlint' },
-        html = { { 'prettierd', 'prettier' } },
-        css = { { 'prettierd', 'prettier' } },
+        gohtmltmpl = { 'djlint' },
+        html = { 'prettierd', 'prettier' },
+        css = { 'prettierd', 'prettier' },
         -- ruby = { 'rubocop' },
       },
       formatters = {
