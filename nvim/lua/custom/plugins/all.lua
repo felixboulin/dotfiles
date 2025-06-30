@@ -173,15 +173,44 @@ return {
   -- {
   --   'github/copilot.vim',
   -- },
-  {
-    'Exafunction/codeium.vim',
-  },
 
+  -- TODO: review mapping conflicts
+  -- h,l taken (where?)
+  --
   {
-    -- 'tpope/vim-rails',
+    'Exafunction/windsurf.vim',
+    event = 'BufEnter',
+    config = function()
+      vim.keymap.set('i', '<C-g>', function()
+        return vim.fn['codeium#Accept']()
+      end, { expr = true, silent = true })
+      vim.keymap.set('i', '<C-j>', function()
+        return vim.fn['codeium#CycleCompletions'](1)
+      end, { expr = true, silent = true })
+      -- vim.keymap.set('i', '<C-h>', function()
+      --   return vim.fn['codeium#CycleCompletions'](-1)
+      -- end, { expr = true, silent = true })
+      vim.keymap.set('i', '<C-x>', function()
+        return vim.fn['codeium#Clear']()
+      end, { expr = true, silent = true })
+      -- vim.keymap.set('i', '<C-k>', function()
+      --   return vim.fn['codeium#AcceptNextWord']()
+      -- end, { expr = true, silent = true })
+      vim.keymap.set('i', '<C-k>', function()
+        return vim.fn['codeium#AcceptNextLine']()
+      end, { expr = true, silent = true })
+      --   vim.keymap.set('i', '<C-k', function()
+      --     return vim.fn['codeium#Complete']()
+      --   end, { expr = true, silent = true })
+    end,
   },
   -- {
-  --   'felixboulin/prompt.nvim', -- Replace with your GitHub repo path
+  --   'github/copilot-cmp',
+  --   config = function()
+  --     require('copil
+
+  -- {
+  --   'felixboulin/prompt.nvim',
   --   config = function()
   --     require('prompt').setup {
   --       default_model = 'mistral-medium',
