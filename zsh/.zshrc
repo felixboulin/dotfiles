@@ -130,7 +130,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-export ES_JAVA_HOME=/opt/homebrew/Cellar/openjdk/21.0.1/libexec/openjdk.jdk/Contents/Home
+# for elastic search, stick to 21  - newer versions not working
+export ES_JAVA_HOME=/opt/homebrew/Cellar/openjdk@21/21.0.1/libexec/openjdk.jdk/Contents/Home
 
 
 # The next line updates PATH for the Google Cloud SDK.

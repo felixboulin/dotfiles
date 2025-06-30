@@ -92,6 +92,7 @@ function ToggleHarperLS()
     print 'harper_ls not currently running.'
   end
 end
+vim.api.nvim_create_user_command('ToggleHarperLS', ToggleHarperLS, {})
 
 -- auto detect django html templates to use djlint formatter - cf lsp file
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
@@ -107,6 +108,27 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*.html',
+  callback = function()
+    -- Only scan small files
+    local lines = vim.api.nvim_buf_get_lines(0, 0, 50, false)
+    for _, line in ipairs(lines) do
+      if line:find '{{' and not line:find '{%%' then
+        vim.bo.filetype = 'htmldjango'
+        return
+      end
+    end
+  end,
+})
+
+-- simple incomplete text highlight for deluge
+vim.filetype.add {
+  extension = {
+    dg = 'js',
+  },
+}
 
 -- locally defined auto dark mode on load
 require('autodarkmode').set_background_from_system()
