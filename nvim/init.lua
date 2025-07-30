@@ -55,9 +55,20 @@ vim.api.nvim_create_autocmd('TermOpen', {
   end,
 })
 
--- set tab to 2 spaces on html files
+-- set tab to 2 spaces for common frontend filetypes
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'html',
+  pattern = {
+    'html',
+    'htmldjango',
+    'javascript',
+    'javascriptreact', -- for .jsx
+    'typescript',
+    'typescriptreact', -- for .tsx
+    'css',
+    'scss',
+    'json',
+    'yaml',
+  },
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.softtabstop = 2
@@ -127,6 +138,7 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 vim.filetype.add {
   extension = {
     dg = 'js',
+    zml = 'html',
   },
 }
 
