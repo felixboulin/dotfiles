@@ -158,6 +158,15 @@ automatically-unhide-macos-hidden-apps = false
 [[on-window-detected]]
     if.app-name-regex-substring = "Messages"
     run = "layout floating"
+[[on-window-detected]]
+    if.app-name-regex-substring = "Microsoft Teams"
+    run = "layout floating"
+[[on-window-detected]]
+    if.app-name-regex-substring = "Bitwarden"
+    run = "layout floating"
+[[on-window-detected]]
+    if.app-name-regex-substring = "Outlook"
+    run = "layout floating"
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
