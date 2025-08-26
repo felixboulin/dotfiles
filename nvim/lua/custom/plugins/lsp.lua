@@ -83,17 +83,8 @@ return {
 
       local servers = {
         -- clangd = {},
-        gopls = {},
         marksman = {},
-        pyright = {
-          settings = {
-            python = {
-              analysis = {
-                typeCheckingMode = 'off',
-              },
-            },
-          },
-        },
+        basedpyright = {},
         black = {
           settings = {
             black = {
@@ -179,12 +170,13 @@ return {
         lua = { 'stylua' },
         python = { 'black' },
         javascript = { 'prettierd', 'prettier' },
-        typescript = { 'prettierd', 'prettier' },
+        -- typescript = { 'prettierd', 'prettier' },
         json = { 'prettierd', 'prettier' },
         htmldjango = { 'djlint' },
         gohtmltmpl = { 'djlint' },
         html = { 'prettierd', 'prettier' },
         css = { 'prettierd', 'prettier' },
+        sh = { 'shfmt' },
         -- ruby = { 'rubocop' },
       },
       formatters = {

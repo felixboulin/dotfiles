@@ -1,6 +1,23 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Ensure PATH includes Homebrew & Python user bin (for latex2text)
+-- -- TOP OF init.lua — before loading your plugin manager
+local extra = {
+  '/Users/felix/.pyenv/versions/mainpy/bin', -- where latex2text is
+  (vim.fn.systemlist([[python3 -c "import site,os; print(os.path.join(site.USER_BASE,'bin'))"]])[1] or ''), -- usually ~/.local/bin
+  '/opt/homebrew/bin',
+  '/usr/local/bin',
+}
+local p = vim.fn.getenv 'PATH' or ''
+for _, d in ipairs(extra) do
+  if d ~= '' and vim.fn.isdirectory(d) == 1 and not p:match(vim.pesc(d)) then
+    p = d .. ':' .. p
+  end
+end
+vim.fn.setenv('PATH', p)
+vim.env.PATH = p
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -21,30 +38,6 @@ require('lazy').setup({ import = 'custom/plugins' }, {
     notify = false,
   },
 })
-
--- ONLY when working on published plugin locally
-package.path = package.path .. ';/Users/felixboulin/dev/prompt.nvim/lua/?.lua'
--- Require the plugin
-require('prompt.init').setup {
-  mistral = {
-    default = 'open-mistral-7b',
-    small = 'open-mistral-7b',
-    medium = 'mistral-small-latest',
-    large = 'mistral-large-latest',
-  },
-  claude = {
-    default = 'claude-3-5-sonnet-latest',
-    small = 'claude-3-haiku-20240307',
-    medium = 'claude-3-5-sonnet-latest',
-    large = 'claude-3-opus-20240229',
-  },
-  chatgpt = {
-    default = 'gpt-4.1-mini',
-    small = 'gpt-3.5-turbo',
-    medium = 'gpt-4o',
-    large = 'gpt-4-turbo',
-  },
-}
 
 -- terminal stuff
 vim.api.nvim_create_autocmd('TermOpen', {
@@ -139,6 +132,7 @@ vim.filetype.add {
   extension = {
     dg = 'js',
     zml = 'html',
+    m = 'matlab',
   },
 }
 

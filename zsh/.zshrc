@@ -120,7 +120,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/Library/Frameworks/Python.framework/Versions/3.11:$PATH"
 
 # alias pip="python3.11 -m pip"
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+# export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 # initialize rbenv
 eval "$(rbenv init - zsh)"
@@ -131,7 +131,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 
 # for elastic search, stick to 21  - newer versions not working
-export ES_JAVA_HOME=/opt/homebrew/Cellar/openjdk@21/21.0.7/libexec/openjdk.jdk/Contents/Home
+export ES_JAVA_HOME=/opt/homebrew/Cellar/openjdk@21/21.0.8/libexec/openjdk.jdk/Contents/Home
 
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -149,3 +149,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Add local custom executable to path
 export PATH="$HOME/bin:$PATH"
+
+# oh-my-zsh-custom
+export ZSH_CUSTOM="$HOME/d/dotfiles/zsh/oh-my-zsh-custom"

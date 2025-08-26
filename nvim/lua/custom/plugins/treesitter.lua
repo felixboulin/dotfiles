@@ -15,6 +15,8 @@ return {
           'html',
           'lua',
           'markdown',
+          'markdown_inline',
+          'latex',
           'vim',
           'vimdoc',
           'python',
@@ -30,7 +32,7 @@ return {
         },
         -- Autoinstall languages that are not installed
         auto_install = true,
-        highlight = { enable = true },
+        highlight = { enable = true, additional_vim_regex_highlighting = {} },
       }
       vim.treesitter.language.register('html', 'gohtmltmpl')
 

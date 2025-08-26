@@ -82,6 +82,7 @@ return {
           light = 'latte',
           dark = 'macchiato',
         },
+        transparent_background = true,
       }
       vim.cmd.colorscheme 'catppuccin'
     end,
@@ -217,4 +218,38 @@ return {
   --     }
   --   end,
   -- },
+  {
+    'kawre/leetcode.nvim',
+    dependencies = {
+      -- include a picker of your choice, see picker section for more details
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+    },
+    opts = {
+      lang = 'python3',
+    },
+  },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    main = 'render-markdown', -- IMPORTANT so opts are applied
+    ft = { 'markdown' }, -- load only for markdown buffers
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'echasnovski/mini.nvim', -- or mini.icons / devicons
+    },
+    opts = {
+      enabled = true,
+      restart_highlighter = true, -- clears weird TS state on lazy load
+      file_types = { 'markdown' }, -- ensure md is included
+      latex = {
+        enabled = true,
+        converter = 'latex2text', -- uses pylatexenc if present
+        position = 'above',
+        top_pad = 0,
+        bottom_pad = 0,
+      },
+      -- leave render_modes at the default (don’t set it to false)
+      -- window options are managed automatically; don’t force conceallevel=0 elsewhere
+    },
+  },
 }
