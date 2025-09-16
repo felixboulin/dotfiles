@@ -1,13 +1,11 @@
+---@diagnostic disable: undefined-global
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Ensure PATH includes Homebrew & Python user bin (for latex2text)
--- -- TOP OF init.lua — before loading your plugin manager
+-- Ensure PATH includes my main pyenv
 local extra = {
-  '/Users/felix/.pyenv/versions/mainpy/bin', -- where latex2text is
-  (vim.fn.systemlist([[python3 -c "import site,os; print(os.path.join(site.USER_BASE,'bin'))"]])[1] or ''), -- usually ~/.local/bin
-  '/opt/homebrew/bin',
-  '/usr/local/bin',
+  '/Users/felix/.pyenv/versions/mainpy/bin',
 }
 local p = vim.fn.getenv 'PATH' or ''
 for _, d in ipairs(extra) do
