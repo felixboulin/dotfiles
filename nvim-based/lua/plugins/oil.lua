@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 return {
   'stevearc/oil.nvim',
   lazy = false,
@@ -17,10 +19,10 @@ return {
     },
   },
   config = function(_, opts)
-      require("oil").setup(opts)
-      vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-      vim.keymap.set("n", "<space>-", function() require("oil").toggle_float() end,
-        { desc = "Open Oil (float)" })
-    end,
+    require('oil').setup(opts)
+    vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+    vim.keymap.set('n', '<space>-', function()
+      require('oil').toggle_float()
+    end, { desc = 'Open Oil (float)' })
+  end,
 }
-

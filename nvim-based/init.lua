@@ -1,9 +1,9 @@
 ---@diagnostic disable: undefined-global
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-require("config.lazy")
+require 'config.lazy'
 require('autodarkmode').set_background_from_system()
 require('autodarkmode').start_auto_watch(1000)
 
@@ -14,3 +14,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.filetype.add {
+  extension = {
+    dg = 'js',
+    zml = 'html',
+    m = 'matlab',
+  },
+}

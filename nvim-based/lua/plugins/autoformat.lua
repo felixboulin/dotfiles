@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 return {
   'stevearc/conform.nvim',
   opts = {

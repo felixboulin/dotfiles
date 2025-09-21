@@ -22,15 +22,6 @@ return {
     local servers = {
       lua_ls = {},
       basedpyright = {},
-      ruby_lsp = {
-        formatter = 'standard',
-        linters = { 'standard' },
-        addonSettings = {
-          ['Ruby LSP Rails'] = {
-            enablePendingMigrationsPrompt = true,
-          },
-        },
-      },
       eslint = {},
     }
 
