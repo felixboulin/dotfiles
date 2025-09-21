@@ -5,11 +5,12 @@ local M = {}
 local last_mode = nil
 local manual_override = false
 
+-- Pick colorscheme by background
 function M.apply_theme()
   local bg = vim.o.background
   local scheme = (bg == 'light') and 'catppuccin-latte' or 'rose-pine'
   -- pcall avoids throwing if one theme isn't available yet
-  -- pcall(vim.cmd.colorscheme, scheme)
+  pcall(vim.cmd.colorscheme, scheme)
 end
 
 function M.get_system_appearance()
@@ -32,6 +33,7 @@ function M.set_background(mode)
   if mode and mode ~= last_mode then
     vim.o.background = mode
     last_mode = mode
+    M.apply_theme()
     vim.cmd("echo 'Background set to " .. mode .. "'")
   end
 end
@@ -64,8 +66,6 @@ local function toggle_bg_color()
   vim.cmd("echo 'Manual override: background set to " .. new_mode .. "'")
 end
 
-vim.keymap.set('n', '<leader>bg', toggle_bg_color, { desc = 'Toggle background light/dark' })
-
 -- If the user runs :set background=light/dark manually, also switch theme.
 vim.api.nvim_create_autocmd('OptionSet', {
   pattern = 'background',
@@ -75,4 +75,7 @@ vim.api.nvim_create_autocmd('OptionSet', {
     M.apply_theme()
   end,
 })
+
+vim.keymap.set('n', '<leader>bg', toggle_bg_color, { desc = 'Toggle background light/dark' })
+
 return M

@@ -1,6 +1,6 @@
 macos-titlebar-style = hidden
 # theme = dark:catppuccin-macchiato.conf,light:catpuccin-latte.conf
-theme = dark:"Rose Pine Moon",light:"Rose Pine Dawn"
+theme = dark:"Rose Pine",light:"Nvim Light"
 cursor-style = block
 cursor-style-blink = false
 # cursor-color = "#888888"
