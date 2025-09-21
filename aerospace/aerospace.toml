@@ -143,7 +143,6 @@ automatically-unhide-macos-hidden-apps = false
     alt-p = '''exec-and-forget open -a "ChatGPT"'''
     alt-g = '''exec-and-forget open -a "Google Chrome"'''
     alt-o = '''exec-and-forget open -a "Logseq"'''
-    alt-d = '''exec-and-forget open -a "draw.io"'''
     alt-y = '''exec-and-forget open -a "YT Music"'''
 
     alt-f = 'fullscreen'
